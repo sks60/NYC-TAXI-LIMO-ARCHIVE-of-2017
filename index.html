@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>GB.20 NYC Taxi Archive</title>
+		<!--STYLE SHEET-->
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQgfVAMhr46AKSwwWtKXv2pGrwQAUKtWA"></script>
+		<!--Script to change display-->
+		<script src="js/script.js"></script>
+		<!--W3 example style sheet -->
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	</head>
+
+	<body>
+
+		<div>
+			<!--The title-->
+			<div class="w3-container w3-teal w3-main top">
+				<h1>NYC TAXI &amp; LIMO ARCHIVE of 2017</h1>
+
+			</div>
+			<div>
+				<button class="button w3-main w3-button w3-white w3-xlarge w3-hide-large" onclick="w3_open()">
+					&#9776;
+				</button>
+			</div>
+			<div>
+				<!--THIS IS THE MAP-->
+				<p class="w3-container w3-main" id="changeText">
+					Display all destination zones (heatmap with frequency) from the Zone chosen
+				</p>
+				<div class="w3-container w3-main" id="map-canvas"></div>
+				<p class="w3-container w3-main">
+					Heat Map Key:
+				</p>
+				<!--THIS IS THE MAP KEY-->
+				<div class = "w3-main" id="tableWrapper">
+					<div id="key">
+						<table id="keyTable">
+							<tr>
+								<td style = "background-color: #00cc44">Green</td>
+								<td>Between 0 to 3 Trips </td>
+								<td style = "background-color: #e6e600">Yellow</td>
+								<td>Between 4 to 8 Trips </td>
+							</tr>
+							<tr>
+							<td style = "background-color: #ff6600">Orange</td>
+							<td>Between 9 to 20 Trips </td>
+							<td style = "background-color: #e60000">Red</td>
+							<td>Over 20 Trips </td>
+							</tr>
+							<tr>
+							<td style = "background-color: #000000; color: white">Black</td>
+							<td>Selected Location</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<br>
+				<p class="w3-container w3-main">
+					Below will be all the data pulled from the search terms in table format
+				</p>
+				<br>
+				<!--THIS IS THE TABLE-->
+				<div class = "w3-main" id="tableWrapper">
+					<div id="tableScroll" style="overflow-x:auto;">
+						<table id="resultsTable"></table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--THE COLAPSIBLE NAVIGATION BAR-->
+		<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left inner-container" id="sidenav">
+			<button class="w3-bar-item w3-button w3-large w3-hide-large w3-teal" onclick="w3_open()">
+				Close &times;
+			</button>
+			<label style="font-size: 35px;">Filter</label>
+			<br>
+			<label style="font-size: 15px;">Please choose from the following options to filter through the archive.</label>
+			<br>
+			<br>
+			<form id="FromTo">
+				<label>
+					<input type="radio" name="FromTo" value="PULocationID" checked>
+					Pick Up </label>
+				<label>
+					<input type="radio" name="FromTo" value="DOLocationID">
+					Drop Off </label>
+			</form>
+			<br>
+			<label>Borough:
+				<div class="select">
+					<select class="boroughDropdown" id = "borough" onchange="nextDropDown(this);">
+						<option value="">--Select--</option>
+					</select>
+				</div> </label>
+
+			<label>Zone:
+				<div class="select">
+					<select id="LocationID" class="Search Match">
+						<option value="">--Select--</option>
+					</select>
+				</div> </label>
+
+			<br>
+			<label for="start">Start Date
+				<input type="date" id="tpep_pickup_datetime" name="start"
+				value="2017-12-22"
+				min="2017-12-01" max="2017-12-31"
+				class="Search GreaterThan" />
+			</label>
+			<br>
+			<label for="end">End Date
+				<input type="date" id="tpep_dropoff_datetime" name="end"
+				value="2017-12-26"
+				min="2017-12-01" max="2017-12-31"
+				class="Search LessThan" />
+			</label>
+			<br>
+			<br>
+			<button id="request_button">
+				Search
+			</button>
+
+		</div>
+
+	</body>
+</html>

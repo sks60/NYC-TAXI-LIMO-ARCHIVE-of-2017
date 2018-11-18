@@ -1,0 +1,143 @@
+/*bellow is the old side nav style*/
+/*https://stackoverflow.com/questions/39903036/open-close-sidenav-bar-same-button*/
+/*https://stackoverflow.com/questions/194397/how-can-i-obfuscate-protect-javascript*/
+/*https://www.w3schools.com/howto/howto_js_sidenav.asp*/
+.w3-main {
+	margin-left: 360px;
+	margin-right: 10px;
+}
+.top {
+	background-color: #ffffff;
+	height: 68px;
+	padding-top: 20px;
+	line-height: 50px;
+	overflow: hidden;
+	z-index: 2;
+}
+
+#sidenav {
+	height: 100%;
+	position: relative;
+	width: 350px;
+	top: 0;
+	left: 0;
+	background-color: teal;
+	overflow-x: hidden;
+	padding: 10px;
+	padding-top: 10px;
+}
+
+#sidenav label {
+	color: white;
+	padding-left: 10px;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+#sidenav select {
+	width: 90%;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+#sidenav select option {
+	width: 90%;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+input[type=radio] {
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+input[type=date] {
+	margin-top: 10px;
+}
+#request_button {
+	position: relative;
+	left: 30%;
+}
+
+#days {
+	height: 200px;
+}
+
+#days option {
+	font-size: 15px;
+}
+
+p {
+	margin-left: 360px; /*Same as the width of the sidenav*/
+	margin-top: 10px;
+	margin-right: 10px;
+}
+#map-canvas {
+	width: inherit;
+	height: 500px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+/*TABLE*/
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.keyTable th {
+	width: 100px;
+}
+
+/*dropdown style*/
+.select {
+	position: relative;
+	display: block;
+	line-height: 2;
+	background: #006666;
+	overflow: hidden;
+}
+select {
+	margin: 0;
+	padding: 0 0 0 .5em;
+	color: black;
+	cursor: pointer;
+}
+select option {
+	background-color: teal;
+}
+select::-ms-expand {
+	display: none;
+}
+/* Arrow */
+.select::after {
+	content: '\25BC';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0 1em;
+	background: #004d4d;
+	pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+	color: #f39c12;
+}
+.select::after {
+	-webkit-transition: .25s all ease;
+	-o-transition: .25s all ease;
+	transition: .25s all ease;
+}
